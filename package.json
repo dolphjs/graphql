@@ -1,6 +1,6 @@
 {
   "name": "@dolphjs/graphql",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Dolph.js' graphql adapter",
   "main": "index.js",
   "repository": "https://github.com/dolphjs/graphql",
