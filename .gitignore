@@ -1,0 +1,21 @@
+node_modules/
+yarn-error.log
+
+dolph-app
+
+dist
+
+# Logs
+logs
+*.log
+*.local
+
+# Misc
+.DS_Store
+.fleet
+.idea
+
+# Local env files
+.env
+.env.*
+!.env.example
