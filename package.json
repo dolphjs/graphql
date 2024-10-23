@@ -57,16 +57,19 @@
     "@types/node": "^22.7.8",
     "@typescript-eslint/eslint-plugin": "^8.11.0",
     "@typescript-eslint/parser": "^8.11.0",
+    "class-validator": "^0.14.1",
     "delete-empty": "^3.0.0",
     "eslint": "^9.13.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-import": "^2.31.0",
+    "graphql-scalars": "^1.23.0",
     "gulp": "^5.0.0",
     "gulp-clang-format": "^1.0.27",
     "gulp-clean": "^0.4.0",
     "gulp-sourcemaps": "^3.0.0",
     "gulp-typescript": "^6.0.0-alpha.1",
     "gulp-watch": "^5.0.1",
+    "ts-node": "^10.9.2",
     "typescript": "^5.6.3"
   }
 }
