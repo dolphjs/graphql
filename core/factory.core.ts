@@ -6,19 +6,30 @@ import { IncomingMessage, Server, ServerResponse } from 'http';
 import { expressMiddleware } from '@apollo/server/express4';
 import { RequestHandler } from 'express';
 import clc from 'cli-color';
+import { DolphGraphQLContextFunction } from '../common';
 
-export async function startServer(
+export async function startServer<TContext>(
     httpServer: Server<typeof IncomingMessage, typeof ServerResponse>,
     schema: GraphQLSchema,
+    context: DolphGraphQLContextFunction<TContext>,
 ): Promise<RequestHandler<any>> {
     try {
-        const server = new ApolloServer({
+        const server = new ApolloServer<TContext>({
             schema,
-            plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
+            plugins: [
+                ApolloServerPluginDrainHttpServer({ httpServer }),
+                /**
+                 * Todo: Add ApolloServerPluginCacheControl({ calculateHttpHeaders: 'if-cacheable' })
+                 * where the value of `calculateHttpHeaders` is passed via the dolph config file
+                 */
+            ],
             formatError: (formattedError, error) => {
-                //TODO: allow it to read dolph_cli to know which database is being used then throw Internal Server Error for it
+                /**
+                 * TODO: allow it to read dolph_cli to know which database is being used then throw *Internal Server Error for it
+                 */
+
                 //  if(unwrapResolverError(error) instanceof  DBError){
-                // return { message: "Internal Server rror" }
+                // return { message: "Internal Server Error" }
                 // }
 
                 if (formattedError.message.startsWith('Validation:')) {
@@ -35,7 +46,9 @@ export async function startServer(
 
         await server.start();
 
-        const middleware = expressMiddleware(server);
+        const middleware = expressMiddleware(server, {
+            context,
+        });
 
         return middleware;
     } catch (err: any) {
