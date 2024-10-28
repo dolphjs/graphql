@@ -11,7 +11,7 @@ import { DolphGraphQLContextFunction } from '../common';
 export async function startServer<TContext>(
     httpServer: Server<typeof IncomingMessage, typeof ServerResponse>,
     schema: GraphQLSchema,
-    context: DolphGraphQLContextFunction<TContext>,
+    context?: DolphGraphQLContextFunction<TContext>,
 ): Promise<RequestHandler<any>> {
     try {
         const server = new ApolloServer<TContext>({

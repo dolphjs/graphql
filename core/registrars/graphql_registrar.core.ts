@@ -23,7 +23,7 @@ class GraphQLAdapterClass {
     public async apolloServer(
         httpServer: Server<typeof IncomingMessage, typeof ServerResponse>,
         schema: Promise<GraphQLSchema>,
-        context: DolphGraphQLContextFunction<BaseContext>,
+        context?: DolphGraphQLContextFunction<BaseContext>,
     ) {
         this.schema = schema;
         this.httpServer = httpServer;
