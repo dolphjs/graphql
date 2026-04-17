@@ -3,7 +3,7 @@ import { ApolloServerPluginDrainHttpServer } from '@apollo/server/plugin/drainHt
 import { unwrapResolverError } from '@apollo/server/errors';
 import { GraphQLSchema } from 'graphql';
 import { IncomingMessage, Server, ServerResponse } from 'http';
-import { expressMiddleware } from '@apollo/server/express4';
+import { expressMiddleware } from '@as-integrations/express4';
 import { RequestHandler } from 'express';
 import clc from 'cli-color';
 import { DolphGraphQLContextFunction } from '../common';

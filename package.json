@@ -51,6 +51,7 @@
     },
     "dependencies": {
         "@apollo/server": "^5.0.0",
+        "@as-integrations/express4": "^1.1.2",
         "cli-color": "^2.0.4",
         "graphql": "^16.9.0",
         "reflect-metadata": "^0.2.2",
@@ -58,6 +59,7 @@
     },
     "devDependencies": {
         "@types/cli-color": "^2.0.6",
+        "@types/express": "^5.0.6",
         "@types/gulp": "^4.0.17",
         "@types/node": "^22.7.8",
         "@typescript-eslint/eslint-plugin": "^8.11.0",
